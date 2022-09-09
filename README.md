@@ -53,6 +53,16 @@ Once everything is running you can visit the application at:
 - App: http://localhost:3000
 - Studio: http://localhost:5555
 
+You can view logs with the following commands:
+- App logs only:
+  ```bash
+  yarn logs app
+  ```
+- All logs:
+  ```bash
+  yarn logs
+  ```
+
 ## Docker Containers
 - **app** - NextJS Application
   - Port `3000` - Application

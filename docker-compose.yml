@@ -2,7 +2,7 @@ name: next-boilerplate
 
 services:
   app:
-    image: &app_image node:latest
+    image: &app_image node:16
     working_dir: &app_working_dir /var/app
     command: ["yarn", "docker:dev"]
     environment: &app_environment

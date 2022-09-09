@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "up": "docker compose up -d --remove-orphans",
+    "logs": "docker compose logs -ft --tail 500",
     "stop": "docker compose stop",
     "restart": "docker compose restart",
     "dev": "next dev",
