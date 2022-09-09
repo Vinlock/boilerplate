@@ -84,14 +84,14 @@ yarn stop {container_name}
 
 ## Notable Packages Pre-installed
 
-### `classnames`
+### `classnames` ([NPM](https://npmjs.com/package/classnames))
 This is used to manage the state of class names in React components
 
-### `formik`
+### `formik` ([NPM](https://npmjs.com/package/formik))
 This is used to manage the state of input forms in the application.
 
-### `usehooks-ts`
+### `usehooks-ts` ([NPM](https://npmjs.com/package/usehooks-ts))
 A library of useful React hooks.
 
-### `@headlessui/react`
+### `@headlessui/react` ([NPM](https://npmjs.com/package/@headlessui/react))
 A library of useful React components.
