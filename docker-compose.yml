@@ -17,7 +17,7 @@ services:
       AUTH0_CLIENT_ID: "${AUTH0_CLIENT_ID}"
       AUTH0_CLIENT_SECRET: "${AUTH0_CLIENT_SECRET}"
       AUTH0_ISSUER: "${AUTH0_ISSUER}"
-      DATABASE_URL: "postgresql://admin:admin@postgres:5432/${POSTGRES_DATABASE_NAME:-main}?schema=public"
+      DATABASE_URL: "postgresql://admin:admin@postgres:5432/${POSTGRES_DATABASE:-main}?schema=public"
     volumes: &app_volumes
       - ./client:/var/app/client:cached
       - ./pages:/var/app/pages:cached
@@ -67,7 +67,7 @@ services:
     environment:
       POSTGRES_USER: "${POSTGRES_USER:-admin}"
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-admin}"
-      POSTGRES_DB: "${POSTGRES_DATABASE_NAME:-main}"
+      POSTGRES_DB: "${POSTGRES_DATABASE:-main}"
     volumes:
       - postgres-data:/var/lib/postgresql/data/
     healthcheck:
