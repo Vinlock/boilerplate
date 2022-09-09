@@ -37,10 +37,16 @@ services:
       - "${NEXT_APP_DEBUG_PORT:-9229}:9229"
     depends_on:
       - postgres
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/ping"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 2m
   studio:
     image: *app_image
     working_dir: *app_working_dir
-    command: ["yarn", "studio"]
+    command: ["yarn", "prisma:studio"]
     environment: *app_environment
     volumes: *app_volumes
     depends_on:
@@ -48,6 +54,12 @@ services:
       - postgres
     ports:
       - "${PRISMA_STUDIO_PORT:-5555}:5555"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5555"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 2m
   postgres:
     image: postgres:latest
     ports:
@@ -58,6 +70,11 @@ services:
       POSTGRES_DB: "${POSTGRES_DATABASE_NAME:-main}"
     volumes:
       - postgres-data:/var/lib/postgresql/data/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   app-node-modules: {}

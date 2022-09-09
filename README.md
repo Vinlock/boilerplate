@@ -54,3 +54,17 @@ Once everything is running you can visit the application at:
   - Port `5555` - Studio
 - **postgres** - PostgreSQL DB
   - Port `5432` - DB
+
+## Notable Packages Pre-installed
+
+### `classnames`
+This is used to manage the state of class names in React components
+
+### `formik`
+This is used to manage the state of input forms in the application.
+
+### `usehooks-ts`
+A library of useful React hooks.
+
+### `@headlessui/react`
+A library of useful React components.
