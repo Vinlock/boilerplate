@@ -62,6 +62,16 @@ You can view logs with the following commands:
   ```bash
   yarn logs
   ```
+  
+Other useful commands:
+_Omitting `container_name` will run the command on all containers._
+```bash
+yarn restart {container_name}
+```
+
+```bash
+yarn stop {container_name}
+```
 
 ## Docker Containers
 - **app** - NextJS Application
