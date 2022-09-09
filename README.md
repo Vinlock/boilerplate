@@ -12,6 +12,13 @@
 ```
 app/
 ├─ client/              # React Client Files
+│  ├─ components        # React Shared Components
+│  ├─ contexts          # React Contexts
+│  ├─ hooks             # React Hooks
+│  ├─ icons             # FontAwesome Icon Management
+│  ├─ layouts           # Page Layout Components
+│  ├─ lib               # Libraries
+│  ├─ modules           # Modules containing components of specific concerns
 ├─ pages/               # NextJS Pages
 ├─ prisma/              # Prisma Schema + Migrations
 ├─ public/              # NextJS Public Folder
