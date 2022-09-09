@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "sourceMap": true,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -13,7 +14,24 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*"],
+      "~components/*": ["client/components/*"],
+      "~modules/*": ["client/modules/*"],
+      "~contexts/*": ["client/contexts/*"],
+      "~layouts/*": ["client/layouts/*"],
+      "~hooks/*": ["client/hooks/*"],
+      "~lib/*": ["client/lib/*"],
+      "~config": ["config"],
+      "~db": ["server/db/prisma"],
+      "~db/enums": ["server/db/enums"],
+      "~services/*": ["server/services/*"],
+      "~server/*": ["server/*"],
+      "~controllers": ["server/controllers"],
+      "~controllers/*": ["server/controllers/*"],
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

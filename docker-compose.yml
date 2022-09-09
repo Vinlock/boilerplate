@@ -1,0 +1,64 @@
+name: next-boilerplate
+
+services:
+  app:
+    image: &app_image node:latest
+    working_dir: &app_working_dir /var/app
+    command: ["yarn", "docker:dev"]
+    environment: &app_environment
+      # Startup Config
+      NODE_ENV: "development"
+      APP_PORT: "3000"
+      FONTAWESOME_TOKEN: "${FONTAWESOME_TOKEN}"
+      # Public Config
+      NEXT_PUBLIC_APP_URL: "http://localhost:${NEXT_APP_PORT:-3000}"
+      NEXT_PUBLIC_AUTH0_CLIENT_ID: "${AUTH0_CLIENT_ID}"
+      NEXT_PUBLIC_AUTH0_ISSUER: "${AUTH0_ISSUER}"
+      AUTH0_CLIENT_ID: "${AUTH0_CLIENT_ID}"
+      AUTH0_CLIENT_SECRET: "${AUTH0_CLIENT_SECRET}"
+      AUTH0_ISSUER: "${AUTH0_ISSUER}"
+      DATABASE_URL: "postgresql://admin:admin@postgres:5432/${POSTGRES_DATABASE_NAME:-main}?schema=public"
+    volumes: &app_volumes
+      - ./client:/var/app/client:cached
+      - ./pages:/var/app/pages:cached
+      - ./prisma:/var/app/prisma:cached
+      - ./public:/var/app/public:cached
+      - ./server:/var/app/server:cached
+      - ./styles:/var/app/styles:cached
+      - ./next.config.js:/var/app/next.config.js:cached
+      - ./package.json:/var/app/package.json:cached
+      - ./tsconfig.json:/var/app/tsconfig.json:cached
+      - ./next-env.d.ts:/var/app/next-env.d.ts:cached
+      - ./react.d.ts:/var/app/react.d.ts:cached
+      - ./.npmrc:/var/app/.npmrc
+      - app-node-modules:/var/app/node_modules
+    ports:
+      - "${NEXT_APP_PORT:-3000}:3000"
+      - "${NEXT_APP_DEBUG_PORT:-9229}:9229"
+    depends_on:
+      - postgres
+  studio:
+    image: *app_image
+    working_dir: *app_working_dir
+    command: ["yarn", "studio"]
+    environment: *app_environment
+    volumes: *app_volumes
+    depends_on:
+      - app
+      - postgres
+    ports:
+      - "${PRISMA_STUDIO_PORT:-5555}:5555"
+  postgres:
+    image: postgres:latest
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER:-admin}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-admin}"
+      POSTGRES_DB: "${POSTGRES_DATABASE_NAME:-main}"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
+
+volumes:
+  app-node-modules: {}
+  postgres-data: {}

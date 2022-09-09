@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS + NextAuth.js + tRPC + Prisma + Tailwind + Auth0 Boilerplate
+
+## Relevant Technology Documentation
+- NextJS - https://nextjs.org/docs
+- NextAuth.js - https://next-auth.js.org/getting-started/introduction
+- tRPC - https://trpc.io/docs/v9/
+- Prisma - https://www.prisma.io/docs/
+- Tailwind - https://tailwindcss.com/docs/
+- Auth0 - https://auth0.com/docs/
+
+## Project Structure
+```
+app/
+├─ client/              # React Client Files
+├─ pages/               # NextJS Pages
+├─ prisma/              # Prisma Schema + Migrations
+├─ public/              # NextJS Public Folder
+├─ server/              # Server Files
+│  ├─ controllers/      # tRPC Routers
+│  ├─ db/               # DB Files
+│  ├─ services/         # Service Files
+├─ styles/              # Core CSS Files
+├─ docker-compose.yml   # Docker Compose for Development
+├─ .env.example         # Example .env File
+├─ .gitignore           # Git Ignore
+├─ next.config.js       # NextJS Configuration
+├─ postcss.config.js    # PostCSS Configuration
+├─ .eslintrc            # ESLint
+├─ package.json         # Node Package JSON
+├─ tsconfig.json        # Typescript Configuration
+├─ config.ts            # Application Config (Env Vars)
+├─ next-env.d.ts        # NextJS TS File
+├─ react.d.ts           # React Global TS Types
+├─ .npmrc               # NPM RC for Private Packages
+```
 
 ## Getting Started
 
-First, run the development server:
-
+When you first start up, migrations will run to seed the database.
 ```bash
-npm run dev
-# or
-yarn dev
+yarn up
 ```
+Note: Migrations will not auto-run on hot reload.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once everything is running you can visit the application at:
+- App: http://localhost:3000
+- Studio: http://localhost:5555
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Docker Containers
+- **app** - NextJS Application
+  - Port `3000` - Application
+  - Port `9229` - Debugger
+- **studio** - Prisma Studio
+  - Port `5555` - Studio
+- **postgres** - PostgreSQL DB
+  - Port `5432` - DB
