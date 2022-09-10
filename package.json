@@ -20,7 +20,8 @@
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate",
     "migrate:dev": "npx prisma migrate dev",
-    "migrate:prod": "npx prisma migrate deploy"
+    "migrate:prod": "npx prisma migrate deploy",
+    "postinstall": "yarn generate"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "6.1.1",
