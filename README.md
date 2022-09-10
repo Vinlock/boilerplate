@@ -95,3 +95,19 @@ A library of useful React hooks.
 
 ### `@headlessui/react` ([NPM](https://npmjs.com/package/@headlessui/react)) ([Github](https://github.com/tailwindlabs/headlessui)) ([Docs](https://headlessui.com/))
 A library of useful React components.
+
+## Linting
+Run the linter with:
+```bash
+yarn lint
+```
+
+Run the linter and fix all fixable issues:
+```bash
+yarn lint --fix
+```
+
+Print all applied ESLint rules:
+```bash
+yarn ling:config
+```
