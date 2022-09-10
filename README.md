@@ -53,7 +53,7 @@ yarn up
 ```
 
 #### Run the initial migrations
-This command can be used to migrate the database at anytime.
+_This command can be used to migrate the database at anytime._
 ```bash
 yarn migrate
 ```
