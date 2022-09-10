@@ -43,22 +43,38 @@ app/
 
 ## Getting Started
 
-When you first start up, migrations will run to seed the database.
+### Prerequisites
+- Docker Desktop v4.11.1 (84025) - ([Download](https://www.docker.com/products/docker-desktop/))
+
+### Running the application in Docker
+#### Start the application with:
 ```bash
 yarn up
 ```
-Note: Migrations will not auto-run on hot reload.
 
+#### Run the initial migrations
+This command can be used to migrate the database at anytime.
+```bash
+yarn migrate
+```
+Notes:
+- Migrations will _not_ seed the database you must run them manually..
+- Migrations will not auto-run on hot reload.
+
+#### Viewing the dev site
 Once everything is running you can visit the application at:
 - App: http://localhost:3000
 - Studio: http://localhost:5555
 
+#### Viewing logs
 You can view logs with the following commands:
-- App logs only:
+
+App logs only:
   ```bash
   yarn logs app
   ```
-- All logs:
+
+All logs:
   ```bash
   yarn logs
   ```

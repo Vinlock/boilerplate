@@ -47,7 +47,7 @@ services:
   studio:
     image: *app_image
     working_dir: *app_working_dir
-    command: ["yarn", "prisma:studio"]
+    command: ["yarn", "studio"]
     environment: *app_environment
     volumes: *app_volumes
     depends_on:

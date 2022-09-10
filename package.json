@@ -12,15 +12,14 @@
     "start": "next start",
     "lint": "next lint",
     "lint:config": "eslint --print-config .eslintrc",
-    "docker:dev": "yarn && NODE_OPTIONS='--inspect 0.0.0.0' yarn dev",
-    "docker:migrate:dev": "docker compose exec app npx prisma migrate dev",
     "prisma": "npx prisma",
-    "prisma:studio": "npx prisma studio",
+    "studio": "npx prisma studio",
     "generate": "npx prisma generate",
-    "migrate": "npx prisma migrate",
-    "migrate:dev": "npx prisma migrate dev",
+    "migrate": "yarn docker:migrate && yarn generate",
     "migrate:prod": "npx prisma migrate deploy",
-    "postinstall": "yarn generate"
+    "postinstall": "yarn generate",
+    "docker:dev": "yarn && NODE_OPTIONS='--inspect 0.0.0.0' yarn dev",
+    "docker:migrate": "docker compose exec app npx prisma migrate dev --skip-generate"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "6.1.1",
