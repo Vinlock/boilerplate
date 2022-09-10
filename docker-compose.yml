@@ -1,8 +1,8 @@
-name: next-boilerplate
+name: next
 
 services:
   app:
-    image: &app_image node:16
+    image: &app_image node:latest
     working_dir: &app_working_dir /var/app
     command: ["yarn", "docker:dev"]
     environment: &app_environment
@@ -14,10 +14,13 @@ services:
       NEXT_PUBLIC_APP_URL: "http://localhost:${NEXT_APP_PORT:-3000}"
       NEXT_PUBLIC_AUTH0_CLIENT_ID: "${AUTH0_CLIENT_ID}"
       NEXT_PUBLIC_AUTH0_ISSUER: "${AUTH0_ISSUER}"
+      # Server Config
+      NEXTAUTH_URL: "http://localhost:${NEXT_APP_PORT:-3000}"
+      DEBUG_ENABLED: "true"
       AUTH0_CLIENT_ID: "${AUTH0_CLIENT_ID}"
       AUTH0_CLIENT_SECRET: "${AUTH0_CLIENT_SECRET}"
       AUTH0_ISSUER: "${AUTH0_ISSUER}"
-      DATABASE_URL: "postgresql://admin:admin@postgres:5432/main?schema=public"
+      DATABASE_URL: "postgresql://${POSTGRES_USER:-admin}:${POSTGRES_PASSWORD:-admin}@postgres:5432/${POSTGRES_DATABASE:-boilerplate}?schema=public"
     volumes: &app_volumes
       - ./client:/var/app/client:cached
       - ./pages:/var/app/pages:cached
@@ -26,8 +29,11 @@ services:
       - ./server:/var/app/server:cached
       - ./styles:/var/app/styles:cached
       - ./next.config.js:/var/app/next.config.js:cached
+      - ./postcss.config.js:/var/app/postcss.config.js:cached
+      - ./tailwind.config.js:/var/app/tailwind.config.js:cached
       - ./package.json:/var/app/package.json:cached
       - ./tsconfig.json:/var/app/tsconfig.json:cached
+      - ./config.ts:/var/app/config.ts:cached
       - ./next-env.d.ts:/var/app/next-env.d.ts:cached
       - ./react.d.ts:/var/app/react.d.ts:cached
       - ./.npmrc:/var/app/.npmrc
@@ -37,12 +43,6 @@ services:
       - "${NEXT_APP_DEBUG_PORT:-9229}:9229"
     depends_on:
       - postgres
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/ping"]
-      interval: 1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 2m
   studio:
     image: *app_image
     working_dir: *app_working_dir
@@ -54,12 +54,6 @@ services:
       - postgres
     ports:
       - "${PRISMA_STUDIO_PORT:-5555}:5555"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5555"]
-      interval: 1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 2m
   postgres:
     image: postgres:latest
     ports:
@@ -67,7 +61,7 @@ services:
     environment:
       POSTGRES_USER: "${POSTGRES_USER:-admin}"
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-admin}"
-      POSTGRES_DB: "${POSTGRES_DATABASE:-main}"
+      POSTGRES_DB: "${POSTGRES_DATABASE:-boilerplate}"
     volumes:
       - postgres-data:/var/lib/postgresql/data/
 
