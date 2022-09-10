@@ -73,6 +73,7 @@ App logs only:
   ```bash
   yarn logs app
   ```
+_`app` can be replaced with any of the other Docker container named._
 
 All logs:
   ```bash
