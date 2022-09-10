@@ -80,10 +80,10 @@ All logs:
   ```
 
 #### Connecting to Postgres with your favorite Postgres Client
-Host: `localhost`
-Port: `5432`
-Database: `myapp`
-Username: `admin`
+Host: `localhost`  
+Port: `5432`  
+Database: `myapp`  
+Username: `admin`  
 Password: `admin`
 
 Other useful commands:
