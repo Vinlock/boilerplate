@@ -78,7 +78,14 @@ All logs:
   ```bash
   yarn logs
   ```
-  
+
+#### Connecting to Postgres with your favorite Postgres Client
+Host: `localhost`
+Port: `5432`
+Database: `myapp`
+Username: `admin`
+Password: `admin`
+
 Other useful commands:
 _Omitting `container_name` will run the command on all containers._
 ```bash

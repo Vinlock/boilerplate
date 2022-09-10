@@ -1,4 +1,4 @@
-name: next
+name: my-app
 
 services:
   app:
@@ -21,7 +21,7 @@ services:
       AUTH0_CLIENT_ID: "${AUTH0_CLIENT_ID}"
       AUTH0_CLIENT_SECRET: "${AUTH0_CLIENT_SECRET}"
       AUTH0_ISSUER: "${AUTH0_ISSUER}"
-      DATABASE_URL: "postgresql://${POSTGRES_USER:-admin}:${POSTGRES_PASSWORD:-admin}@postgres:5432/${POSTGRES_DATABASE:-boilerplate}?schema=public"
+      DATABASE_URL: "postgresql://${POSTGRES_USER:-admin}:${POSTGRES_PASSWORD:-admin}@postgres:5432/${POSTGRES_DATABASE:-myapp}?schema=public"
     volumes: &app_volumes
       - ./client:/var/app/client:cached
       - ./pages:/var/app/pages:cached
@@ -62,7 +62,7 @@ services:
     environment:
       POSTGRES_USER: "${POSTGRES_USER:-admin}"
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-admin}"
-      POSTGRES_DB: "${POSTGRES_DATABASE:-boilerplate}"
+      POSTGRES_DB: "${POSTGRES_DATABASE:-myapp}"
     volumes:
       - postgres-data:/var/lib/postgresql/data/
 

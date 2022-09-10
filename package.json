@@ -13,7 +13,7 @@
     "lint": "next lint",
     "lint:config": "eslint --print-config .eslintrc",
     "prisma": "npx prisma",
-    "studio": "npx prisma studio",
+    "studio": "npx prisma studio --browser none",
     "generate": "npx prisma generate",
     "migrate": "yarn docker:migrate && yarn generate",
     "migrate:prod": "npx prisma migrate deploy",
