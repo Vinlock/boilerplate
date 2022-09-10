@@ -151,6 +151,18 @@ const MyComponent: FCC<Props> = (props) => {
     <button className={classList}>My Button</button>
   )
 }
+
+MyComponent.defaultProps = {
+  small: false,
+  color: 'primary',
+}
+
+type Props = {
+  small?: boolean
+  color?: 'primary' | 'secondary'
+}
+
+export default MyComponent
 ```
 
 ### `formik` ([NPM](https://npmjs.com/package/formik)) ([Github](https://github.com/jaredpalmer/formik)) ([Docs](https://formik.org/docs/overview))
