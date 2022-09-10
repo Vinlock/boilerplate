@@ -58,7 +58,7 @@ _This command can be used to migrate the database at anytime._
 yarn migrate
 ```
 Notes:
-- Migrations will _not_ seed the database you must run them manually..
+- Migrations will _not_ seed the database you must run them manually.
 - Migrations will not auto-run on hot reload.
 
 #### Viewing the dev site
