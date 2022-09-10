@@ -83,7 +83,10 @@ All logs:
   yarn logs
   ```
 
-#### 6. Connecting to Postgres with your favorite Postgres Client _(Useful)_
+### Useful Info
+
+#### Connecting to Postgres with your favorite Postgres Client
+Only useful if you don't want to use the already provided Prisma Studio container.  
 _Some of these values can be overridden by a `.env` environment variable._
 | **Field** | **Value**   | **Overridable Via** |
 |-----------|-------------|---------------------|
@@ -93,7 +96,7 @@ _Some of these values can be overridden by a `.env` environment variable._
 | Username  | `admin`     | `POSTGRES_USERNAME` |
 | Password  | `admin`     | `POSTGRES_PASSWORD` |
 
-#### 7. Other useful commands _(Useful)_
+#### Other useful commands
 _Omitting `container_name` will run the command on all containers._
 ```bash
 yarn restart {container_name}
