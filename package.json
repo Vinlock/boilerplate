@@ -13,7 +13,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "lint:config": "eslint --print-config .eslintrc",
-    "docker:dev": "yarn --ignore-engines && NODE_OPTIONS='--inspect 0.0.0.0' yarn dev",
+    "docker:dev": "yarn && NODE_OPTIONS='--inspect 0.0.0.0' yarn dev",
     "docker:migrate:dev": "docker compose exec app npx prisma migrate dev",
     "prisma": "npx prisma",
     "prisma:studio": "npx prisma studio",
