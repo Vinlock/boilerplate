@@ -118,8 +118,11 @@ This is the package to use FontAwesome with React.
 This is used to manage the state of class names in React components.
 
 #### Example use:
-```ts
-const classList = classnames([
+```tsx
+import classnames from 'classnames'
+
+const MyComponent: FCC<Props> = (props) => {
+  const classList = classnames([
     'flex', 'justify-center', 'items-center', 'appearance-none',
     'select-none', 'w-full', 'p-2', 'tap-highlight-none',
     // Text
@@ -133,16 +136,21 @@ const classList = classnames([
     // Scale on click
     'scale-on-click',
     'rounded-sm',
-], {
-    'h-10': !small,
-    'h-8 md:h-6': small,
-}, {
+  ], {
+    'h-10': !props.small,
+    'h-8 md:h-6': props.small,
+  }, {
     // Primary
-    'bg-amber-300': color === 'primary',
-    'ring-amber-300': color === 'primary',
-    'hover:bg-amber-400': color === 'primary',
-    'hover:ring-amber-400': color === 'primary',
-}, className)
+    'bg-amber-300': props.color === 'primary',
+    'ring-amber-300': props.color === 'primary',
+    'hover:bg-amber-400': props.color === 'primary',
+    'hover:ring-amber-400': props.color === 'primary',
+  }, props.className)
+  
+  return (
+    <button className={classList}>My Button</button>
+  )
+}
 ```
 
 ### `formik` ([NPM](https://npmjs.com/package/formik)) ([Github](https://github.com/jaredpalmer/formik)) ([Docs](https://formik.org/docs/overview))
