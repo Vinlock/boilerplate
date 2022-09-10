@@ -47,15 +47,15 @@ app/
 - Docker Desktop v4.11.1 (84025) - ([Download](https://www.docker.com/products/docker-desktop/))
 
 ### Running the application in Docker
-#### Create your `.env` file with the required values:
+#### 1. Create your `.env` file with the required values:
 See [Auth0 Setup Section](#auth0-setup) to set-up your Auth0 account properly and retrieve these values.
 
-#### Start the application with:
+#### 2. Start the application with:
 ```bash
 yarn up
 ```
 
-#### Run the initial migrations
+#### 3. Run the initial migrations
 _This command can be used to migrate the database at anytime._
 ```bash
 yarn migrate
@@ -64,12 +64,12 @@ Notes:
 - Restarting the application will _not_ run migrations automatically, you must run them manually.
 - Migrations will not auto-run on hot reload.
 
-#### Viewing the dev site
+#### 4. Viewing the dev site
 Once everything is running you can visit the application at:
 - App: http://localhost:3000
 - Studio: http://localhost:5555
 
-#### Viewing logs
+#### 5. Viewing logs
 You can view logs with the following commands:
 
 App logs only:
@@ -83,7 +83,7 @@ All logs:
   yarn logs
   ```
 
-#### Connecting to Postgres with your favorite Postgres Client
+#### 6. Connecting to Postgres with your favorite Postgres Client _(Useful)_
 _Some of these values can be overridden by a `.env` environment variable._
 | **Field** | **Value**   | **Overridable Via** |
 |-----------|-------------|---------------------|
@@ -93,7 +93,7 @@ _Some of these values can be overridden by a `.env` environment variable._
 | Username  | `admin`     | `POSTGRES_USERNAME` |
 | Password  | `admin`     | `POSTGRES_PASSWORD` |
 
-#### Other useful commands
+#### 7. Other useful commands _(Useful)_
 _Omitting `container_name` will run the command on all containers._
 ```bash
 yarn restart {container_name}
