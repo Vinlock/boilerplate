@@ -81,10 +81,10 @@ All logs:
 
 #### Connecting to Postgres with your favorite Postgres Client
 Host: `localhost`  
-Port: `5432`  
-Database: `myapp`  
-Username: `admin`  
-Password: `admin`
+Port: `5432` (Modifiable via `.env` variable `POSTGRES_PORT`)  
+Database: `myapp` (Modifiable via `.env` variable `POSTGRES_DATABASE`)  
+Username: `admin` (Modifiable via `.env` variable `POSTGRES_USER`)  
+Password: `admin` (Modifiable via `.env` variable `POSTGRES_PASSWORD`)
 
 Other useful commands:
 _Omitting `container_name` will run the command on all containers._
