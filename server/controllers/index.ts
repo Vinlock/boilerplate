@@ -1,11 +1,9 @@
 import superjson from 'superjson'
 import { createRouter } from '~controllers/context'
-import accountRouter from './routers/account'
-import authRouter from './routers/auth'
+import ping from '~controllers/routers/ping'
 
 export const appRouter = createRouter()
 	.transformer(superjson)
-	.merge('account.', accountRouter)
-	.merge('auth.', authRouter)
+	.merge('ping.', ping)
 
 export type AppRouter = typeof appRouter
