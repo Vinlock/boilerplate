@@ -80,11 +80,14 @@ All logs:
   ```
 
 #### Connecting to Postgres with your favorite Postgres Client
-Host: `localhost`  
-Port: `5432` (Modifiable via `.env` variable `POSTGRES_PORT`)  
-Database: `myapp` (Modifiable via `.env` variable `POSTGRES_DATABASE`)  
-Username: `admin` (Modifiable via `.env` variable `POSTGRES_USER`)  
-Password: `admin` (Modifiable via `.env` variable `POSTGRES_PASSWORD`)
+_Some of these values can be overridden by a `.env` environment variable._
+| **Field** | **Value**   | **Overridable via** |
+|-----------|-------------|---------------------|
+| Host      | `localhost` |                     |
+| Port      | `5432`      | `POSTGRES_PORT`     |
+| Database  | `myapp`     | `POSTGRES_DATABASE` |
+| Username  | `admin`     | `POSTGRES_USERNAME` |
+| Password  | `admin`     | `POSTGRES_PASSWORD` |
 
 Other useful commands:
 _Omitting `container_name` will run the command on all containers._
