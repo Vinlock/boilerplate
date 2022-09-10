@@ -48,12 +48,7 @@ app/
 
 ### Running the application in Docker
 #### Create your `.env` file with the required values:
-Currently, only these values are required to enable authentication:
-- `AUTH0_CLIENT_ID`
-- `AUTH0_CLIENT_SECRET`
-- `AUTH0_ISSUER`
-
-See Auth0 Setup Section to setup your Auth0 account properly and retrieve these values.
+See [Auth0 Setup Section](#auth0-setup) to set-up your Auth0 account properly and retrieve these values.
 
 #### Start the application with:
 ```bash
