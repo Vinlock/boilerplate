@@ -17,7 +17,7 @@ services:
       AUTH0_CLIENT_ID: "${AUTH0_CLIENT_ID}"
       AUTH0_CLIENT_SECRET: "${AUTH0_CLIENT_SECRET}"
       AUTH0_ISSUER: "${AUTH0_ISSUER}"
-      DATABASE_URL: "postgresql://admin:admin@postgres:5432/${POSTGRES_DATABASE:-main}?schema=public"
+      DATABASE_URL: "postgresql://admin:admin@postgres:5432/main?schema=public"
     volumes: &app_volumes
       - ./client:/var/app/client:cached
       - ./pages:/var/app/pages:cached
@@ -70,11 +70,6 @@ services:
       POSTGRES_DB: "${POSTGRES_DATABASE:-main}"
     volumes:
       - postgres-data:/var/lib/postgresql/data/
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
 volumes:
   app-node-modules: {}
