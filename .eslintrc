@@ -101,7 +101,8 @@
         "internal"
       ],
       "pathGroups": [
-        { "pattern": "~**", "group": "internal", "position": "before" }
+        { "pattern": "~**", "group": "internal", "position": "before" },
+        { "pattern": "@**", "group": "external", "position": "before" }
       ],
       "newlines-between": "never"
     }]

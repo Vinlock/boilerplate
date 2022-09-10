@@ -2,9 +2,15 @@ import type { AppPropsType } from 'next/dist/shared/lib/utils'
 import type { Session } from 'next-auth'
 import type { NextRouter } from 'next/dist/shared/lib/router/router'
 import Head from 'next/head'
+import { withTRPC } from '@trpc/next'
 import { SessionProvider } from 'next-auth/react'
+import superjson from 'superjson'
+import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
+import { serverConfig } from '~config'
+import type { AppRouter } from '~controllers'
 import '../styles/globals.css'
 import '../client/icons'
+import { URL } from 'url'
 
 const App = (props: AppPropsType<NextRouter, { session: Session }>) => {
 	return (
@@ -20,4 +26,20 @@ const App = (props: AppPropsType<NextRouter, { session: Session }>) => {
 	)
 }
 
-export default App
+export default withTRPC<AppRouter>({
+	config: () => {
+		const url = new URL(serverConfig.app.url)
+		url.pathname = '/api/trpc'
+
+		return {
+			url: url.href,
+			links: [
+				httpBatchLink({
+					url: url.href,
+				}),
+			],
+			transformer: superjson,
+		}
+	},
+	ssr: true,
+})(App)
