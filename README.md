@@ -111,6 +111,8 @@ yarn stop {container_name}
 
 ## Notable Packages Pre-installed
 
+### `@fortawesome/react-fontawesome` ([Docs](https://fontawesome.com/icons))
+
 ### `classnames` ([NPM](https://npmjs.com/package/classnames)) ([Github](https://github.com/JedWatson/classnames))
 This is used to manage the state of class names in React components.
 
