@@ -17,9 +17,8 @@
     "generate": "npx prisma generate",
     "migrate": "yarn docker:migrate && yarn generate",
     "migrate:prod": "npx prisma migrate deploy",
-    "postinstall": "yarn generate",
     "docker:dev": "yarn && NODE_OPTIONS='--inspect 0.0.0.0' yarn dev",
-    "docker:migrate": "docker compose exec app npx prisma migrate dev --skip-generate"
+    "docker:migrate": "docker compose exec app npx prisma migrate dev"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "6.1.1",

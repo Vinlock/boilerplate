@@ -195,3 +195,23 @@ Print all applied ESLint rules:
 ```bash
 yarn ling:config
 ```
+
+## NPM Scripts
+| **Script**       | **Description**                                                                                                                                                                                                                          |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `up`             | Starts the Docker project using Docker Compose. Docs: https://docs.docker.com/engine/reference/commandline/compose_up/                                                                                                                   |
+| `logs`           | Logs the Docker containers in the project using Docker Compose. Docs: https://docs.docker.com/engine/reference/commandline/compose_logs/                                                                                                 |
+| `stop`           | Stops one or more Docker containers. Docs: https://docs.docker.com/engine/reference/commandline/compose_stop/                                                                                                                            |
+| `restart`        | Restarts one or more Docker containers. Docs: https://docs.docker.com/engine/reference/commandline/compose_restart/                                                                                                                      |
+| `dev`            | Next.js command to start the development server. _You should never need to use this. It is used by the Docker environment to start the application._ Docs: https://nextjs.org/docs/api-reference/cli#development                         |
+| `build`          | Next.js command to build the project. _You should never need to use this in development. This is used to generate the production build of the application._ Docs: https://nextjs.org/docs/api-reference/cli#build                        |
+| `start`          | Next.js command to start the project in production mode. _You should never need to use this in development._ Docs: https://nextjs.org/docs/api-reference/cli#production                                                                  |
+| `lint`           | Runs ESLint for the project. Docs: https://eslint.org/docs/latest/user-guide/command-line-interface                                                                                                                                      |
+| `lint:config`    | Shortcut to output all composed ESLint rules. Usually used with `grep` to find if an extension implements a rule already. Docs: https://eslint.org/docs/latest/user-guide/command-line-interface#-c---config                             |
+| `prisma`         | Shortcut to the Prisma CLI. Docs: https://www.prisma.io/docs/reference/api-reference/command-reference                                                                                                                                   |
+| `studio`         | Shortcut to run the Prisma Studio. _You should never need to run this locally. It is used by the Docker environment to start the studio container._ Docs: https://www.prisma.io/docs/reference/api-reference/command-reference#studio    |
+| `generate`       | Shortcut to generate the Prisma SDK used as the DB Layer of the application. _This is automatically ran after any `migrate` command is ran locally._ Docs: https://www.prisma.io/docs/reference/api-reference/command-reference#generate |
+| `migrate`        | Shortcut to migrate the application's database during development. This command will also run `generate` to generate the appropriate Prisma SDK. Docs: https://www.prisma.io/docs/reference/api-reference/command-reference#migrate-dev  |
+| `migrate:prod`   | Shortcut to migrate the application's database during CI/CD deployment. _This command should never be used during development._ Docs: https://www.prisma.io/docs/reference/api-reference/command-reference#migrate-deploy                |
+| `docker:dev`     | Script used by the Docker environment to run the application in development mode. _This command should never need to be manually used._                                                                                                  |
+| `docker:migrate` | Script used by the Docker environment to run migrations from within the container. _This command should never need to be manually used. Use the `migrate` command._                                                                      |
