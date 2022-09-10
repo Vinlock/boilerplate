@@ -81,7 +81,7 @@ All logs:
 
 #### Connecting to Postgres with your favorite Postgres Client
 _Some of these values can be overridden by a `.env` environment variable._
-| **Field** | **Value**   | **Overridable via** |
+| **Field** | **Value**   | **Overridable Via** |
 |-----------|-------------|---------------------|
 | Host      | `localhost` |                     |
 | Port      | `5432`      | `POSTGRES_PORT`     |
