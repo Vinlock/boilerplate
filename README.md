@@ -47,6 +47,14 @@ app/
 - Docker Desktop v4.11.1 (84025) - ([Download](https://www.docker.com/products/docker-desktop/))
 
 ### Running the application in Docker
+#### Create your `.env` file with the required values:
+Currently, only these values are required to enable authentication:
+- `AUTH0_CLIENT_ID`
+- `AUTH0_CLIENT_SECRET`
+- `AUTH0_ISSUER`
+
+See Auth0 Setup Section to setup your Auth0 account properly and retrieve these values.
+
 #### Start the application with:
 ```bash
 yarn up
@@ -215,3 +223,16 @@ yarn ling:config
 | `migrate:prod`   | Shortcut to migrate the application's database during CI/CD deployment. _This command should never be used during development._<br>Docs: https://www.prisma.io/docs/reference/api-reference/command-reference#migrate-deploy                 |
 | `docker:dev`     | Script used by the Docker environment to run the application in development mode. _This command should never need to be manually used._                                                                                                      |
 | `docker:migrate` | Script used by the Docker environment to run migrations from within the container. _This command should never need to be manually used. Use the `migrate` command._                                                                          |
+
+## Auth0 Setup
+- Create an Auth0 Account -> https://auth0.com/signup
+- Under **Applications -> Applications** select the **Default App**. _Feel free to rename this later._
+- In `.env` set `AUTH0_ISSUER` to the **Domain** with `https://` prefixed.
+- In `.env` set `AUTH0_CLIENT_ID` to the **Client ID**.
+- In `.env` set `AUTH0_CLIENT_SECRET` to the **Client Secret**.
+- Update the **Application Type** to `Regular Web Application`.
+- Update the **Allowed Callback URLs** to:
+  ```
+  http://localhost:3000/api/auth/callback/auth0
+  ```
+- Click **Save Changes** at the bottom.
