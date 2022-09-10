@@ -37,7 +37,7 @@ app/
 ├─ tsconfig.json        # Typescript Configuration
 ├─ config.ts            # Application Config (Env Vars)
 ├─ next-env.d.ts        # NextJS TS File
-├─ react.d.ts           # React Global TS Types
+├─ react.d.ts           # React Global TS Types. No more importing FC and added an FCC for children.
 ├─ .npmrc               # NPM RC for Private Packages
 ```
 
