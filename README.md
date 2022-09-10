@@ -166,7 +166,13 @@ export default MyComponent
 ```
 
 ### `formik` ([NPM](https://npmjs.com/package/formik)) ([Github](https://github.com/jaredpalmer/formik)) ([Docs](https://formik.org/docs/overview))
-This is used to manage the state of input forms in the application.
+This is used to manage the state of input forms in the application. Formik uses `joi`.
+
+### `joi` ([NPM](https://www.npmjs.com/package/joi)) ([Github](https://github.com/hapijs/joi)) ([Docs](https://joi.dev/api/))
+This is used as validation for `formik`.
+
+### `zod` ([NPM](https://www.npmjs.com/package/zod)) ([Github](https://github.com/colinhacks/zod)) ([Docs](https://zod.dev/))
+This is used as validation for tRPC. _Yea... two validation libraries... Will replace `joi` when we find a good forms library that supports `zod` natively._
 
 ### `usehooks-ts` ([NPM](https://npmjs.com/package/usehooks-ts)) ([Github](https://github.com/juliencrn/usehooks-ts)) ([Docs](https://usehooks-ts.com/))
 A library of useful React hooks.
