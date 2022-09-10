@@ -89,7 +89,7 @@ _Some of these values can be overridden by a `.env` environment variable._
 | Username  | `admin`     | `POSTGRES_USERNAME` |
 | Password  | `admin`     | `POSTGRES_PASSWORD` |
 
-Other useful commands:
+#### Other useful commands
 _Omitting `container_name` will run the command on all containers._
 ```bash
 yarn restart {container_name}
