@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 					{isLoading ? (
 						<p>Loading...</p>
 					) : (
-						<p>Ping is {data}</p>
+						<p>Ping is {data ? 'pong' : null}</p>
 					)}
 				</div>
 			</div>

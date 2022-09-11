@@ -28,15 +28,12 @@ const App = (props: AppPropsType<NextRouter, { session: Session }>) => {
 
 export default withTRPC<AppRouter>({
 	config: () => {
-		const url = new URL(serverConfig.app.url)
-		url.pathname = '/api/trpc'
+		const url = serverConfig.app.url.concat('/api/trpc')
 
 		return {
-			url: url.href,
+			url,
 			links: [
-				httpBatchLink({
-					url: url.href,
-				}),
+				httpBatchLink({ url }),
 			],
 			transformer: superjson,
 		}
