@@ -10,7 +10,6 @@ import { serverConfig } from '~config'
 import type { AppRouter } from '~controllers'
 import '../styles/globals.css'
 import '../client/icons'
-import { URL } from 'url'
 
 const App = (props: AppPropsType<NextRouter, { session: Session }>) => {
 	return (
@@ -28,7 +27,7 @@ const App = (props: AppPropsType<NextRouter, { session: Session }>) => {
 
 export default withTRPC<AppRouter>({
 	config: () => {
-		const url = serverConfig.app.url.concat('/api/trpc')
+		const url = (serverConfig.app.url || '').concat('/api/trpc')
 
 		return {
 			url,
