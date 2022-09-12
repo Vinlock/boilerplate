@@ -9,7 +9,6 @@ import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
 import { serverConfig } from '~config'
 import type { AppRouter } from '~controllers'
 import '../styles/globals.css'
-import '../client/icons'
 
 const App = (props: AppPropsType<NextRouter, { session: Session }>) => {
 	return (

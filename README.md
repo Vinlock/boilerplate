@@ -117,8 +117,8 @@ yarn stop {container_name}
 
 ## Notable Packages Pre-installed
 
-### `@fortawesome/react-fontawesome` ([NPM](https://www.npmjs.com/package/@fortawesome/react-fontawesome)) ([Github](https://github.com/FortAwesome/react-fontawesome)) ([Icons](https://fontawesome.com/icons)) ([Docs](https://fontawesome.com/v5/docs/web/use-with/react))
-This is the package to use FontAwesome with React.
+### `@heroicons/react` ([NPM](https://www.npmjs.com/package/@heroicons/react)) ([Github](https://github.com/tailwindlabs/heroicons)) ([Docs](https://heroicons.com/))
+This is the package to use HeroIcons with React
 
 ### `classnames` ([NPM](https://npmjs.com/package/classnames)) ([Github](https://github.com/JedWatson/classnames))
 This is used to manage the state of class names in React components.
